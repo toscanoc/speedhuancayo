@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2; /* Color de fondo */
+        }
+        h2 {
+            text-align: center;
+            color: #333; /* Color del texto */
+        }
+        form {
+            width: 300px;
+            margin: 0 auto;
+            background-color: #fff; /* Color de fondo del formulario */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Sombra */
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #007bff; /* Color de fondo del botón */
+            color: #fff; /* Color del texto del botón */
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Color de fondo del botón al pasar el ratón */
+        }
+        label {
+            color: #333; /* Color del texto de las etiquetas */
+        }
+        .welcome-message {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Iniciar Sesión</h2>
+
+<form id="loginForm">
+  <div class="container">
+    <label for="username"><b>Nombre de Usuario</b></label>
+    <input type="text" placeholder="Ingrese su nombre de usuario" name="username" id="username" required>
+
+    <label for="password"><b>Contraseña</b></label>
+    <input type="password" placeholder="Ingrese su contraseña" name="password" id="password" required>
+
+    <button type="submit">Iniciar Sesión</button>
+  </div>
+</form>
+
+<div class="welcome-message" id="welcomeMessage" style="display: none;"></div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
+
+        // Captura los datos del formulario
+        var username = document.getElementById('username').value;
+
+        // Oculta el formulario
+        document.getElementById('loginForm').style.display = 'none';
+
+        // Muestra el mensaje de bienvenida con el nombre de usuario
+        document.getElementById('welcomeMessage').innerText = '¡Bienvenido, ' + username + '!';
+        document.getElementById('welcomeMessage').style.display = 'block';
+    });
+</script>
+
+</body>
+</html>
